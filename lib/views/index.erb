@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Mudrat Projector Readme</title>
+  <link rel="stylesheet" type="css" media="all" href="github.css" />
+  <link rel="stylesheet" type="css" media="all" href="readme.css" />
+</head>
+<body>
+  <div id="readme-html">
+  </div><!-- /#readme-html -->
+</body>
+<script type="text/javascript">
+window.onload = function() {
+  (function() {
+    var reload_css = function() {
+      var links = document.getElementsByTagName("link");
+      for(var cc = 0; cc < links.length; cc++) {
+        var link = links[cc];
+        if(link.rel == "stylesheet") {
+          link.href += "?";
+        }
+      }
+    };
+
+    var readme_html = document.getElementById("readme-html");
+    var web_socket_url = "ws://" + window.location.host + window.location.pathname;
+    var ws       = new WebSocket(web_socket_url);
+    ws.onmessage = function(m) {
+      readme_html.innerHTML = m.data;
+      reload_css();
+    };
+  })();
+};
+</script>
+</html>
