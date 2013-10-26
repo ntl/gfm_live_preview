@@ -1,6 +1,6 @@
 # GfmLivePreview
 
-TODO: Write a gem description
+Live preview your github flavored markdown file (with syntax highlighting!). Loads via sinatra on port 31337 of localhost.
 
 ## Installation
 
@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    GfmLivePreview.run! "/path/to/my/README.md"
+
+Now, sinatra should be serving up your README on port 31337.
+
 
 ## Contributing
 
