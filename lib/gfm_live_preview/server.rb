@@ -29,7 +29,6 @@ module GfmLivePreview
           ws.onopen do
             ws.send render_readme_html
             listener = Listen.to doc_path do 
-              puts "Detected change in doc/ directory; rerendering!"
               ws.send render_readme_html
             end
             listener.start
