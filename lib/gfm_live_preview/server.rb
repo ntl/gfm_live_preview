@@ -1,4 +1,4 @@
-module MarkdownPreviewer
+module GfmLivePreview
   class Server < ::Sinatra::Application
     enable :inline_templates
     set :port, 31337
@@ -14,13 +14,13 @@ module MarkdownPreviewer
     end
 
     def render_readme_html
-      readme_md = File.read ::MarkdownPreviewer.file
+      readme_md = File.read ::GfmLivePreview.file
       syntax_highlight! readme_md
       GitHub::Markdown.render_gfm readme_md
     end
 
     def doc_path
-      File.expand_path '..', ::MarkdownPreviewer.file
+      File.expand_path '..', ::GfmLivePreview.file
     end
 
     get "/" do

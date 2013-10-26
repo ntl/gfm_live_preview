@@ -1,10 +1,10 @@
 require "bundler/gem_tasks"
 
 Bundler.require
-require "markdown_previewer"
+require "gfm_live_preview"
 
 task :test do
-  MarkdownPreviewer.run! File.expand_path("../test/sample.md", __FILE__)
+  GfmLivePreview.run! File.expand_path("../test/sample.md", __FILE__)
 end
 
 task default: :test

@@ -1,4 +1,4 @@
-# MarkdownPreviewer
+# GfmLivePreview
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'markdown_previewer'
+    gem 'gfm_live_preview'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install markdown_previewer
+    $ gem install gfm_live_preview
 
 ## Usage
 

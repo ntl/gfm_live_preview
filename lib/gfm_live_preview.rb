@@ -4,17 +4,17 @@ require "github/markdown"
 require "sinatra"
 require "sinatra-websocket"
 
-require "markdown_previewer/server"
-require "markdown_previewer/syntax_highlighter"
-require "markdown_previewer/version"
+require "gfm_live_preview/server"
+require "gfm_live_preview/syntax_highlighter"
+require "gfm_live_preview/version"
 
-module MarkdownPreviewer
+module GfmLivePreview
   extend self
 
   attr :file
 
   def run! markdown_file
     @file = markdown_file
-    MarkdownPreviewer::Server.run!
+    Server.run!
   end
 end

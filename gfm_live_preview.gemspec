@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'markdown_previewer/version'
+require 'gfm_live_preview/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "markdown_previewer"
-  spec.version       = MarkdownPreviewer::VERSION
+  spec.name          = "gfm_live_preview"
+  spec.version       = GfmLivePreview::VERSION
   spec.authors       = ["ntl"]
   spec.email         = ["nathanladd+github@gmail.com"]
   spec.description   = %q{Live preview your github flavored markdown file (with syntax highlighting!).}
   spec.summary       = %q{Live preview your github flavored markdown file (with syntax highlighting!). Loads via sinatra on port 31337 of localhost.}
-  spec.homepage      = "https://github.com/ntl/markdown_previewer"
+  spec.homepage      = "https://github.com/ntl/gfm_live_preview"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

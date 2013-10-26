@@ -1,4 +1,4 @@
-module MarkdownPreviewer
+module GfmLivePreview
   class SyntaxHighlighter
     MATCHER = %r{^```(.+?)$(.*?)^```$}m
 
