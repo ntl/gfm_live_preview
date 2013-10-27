@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby -rubygems
+
+require 'gfm_live_preview'
+
+GfmLivePreview.run! ARGV.shift

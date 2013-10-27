@@ -20,6 +20,10 @@ Or install it yourself as:
 
     GfmLivePreview.run! "/path/to/my/README.md"
 
+Or, if you want to run it from the command line:
+
+    $ gfm_live_preview "/path/to/my/README.md"
+
 Now, sinatra should be serving up your README on port 31337.
 
 
