@@ -1,6 +1,7 @@
 module GfmLivePreview
   class Server < ::Sinatra::Application
     enable :inline_templates
+    set :bind, "0.0.0.0"
     set :port, GfmLivePreview.config.fetch(:port)
     set :sockets, []
 
