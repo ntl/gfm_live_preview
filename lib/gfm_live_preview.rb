@@ -4,7 +4,6 @@ require "github/markdown"
 require "sinatra"
 require "sinatra-websocket"
 
-require "gfm_live_preview/server"
 require "gfm_live_preview/syntax_highlighter"
 require "gfm_live_preview/version"
 
@@ -13,8 +12,16 @@ module GfmLivePreview
 
   attr :file
 
-  def run! markdown_file
-    @file = markdown_file
+  autoload :CLI,    "gfm_live_preview/cli"
+  autoload :Server, "gfm_live_preview/server"
+
+  def run! argv
+    @file, options = CLI.parse argv
+    config.update options
     Server.run!
+  end
+
+  def config
+    @config ||= {}
   end
 end

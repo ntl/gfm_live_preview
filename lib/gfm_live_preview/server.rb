@@ -1,7 +1,7 @@
 module GfmLivePreview
   class Server < ::Sinatra::Application
     enable :inline_templates
-    set :port, 31337
+    set :port, GfmLivePreview.config.fetch(:port)
     set :sockets, []
 
     def syntax_highlight! str

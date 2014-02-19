@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby -rubygems
 
-require 'gfm_live_preview'
+begin
+  require 'gfm_live_preview'
+rescue LoadError
+  require 'rubygems'
+  require 'gfm_live_preview'
+end
 
-GfmLivePreview.run! ARGV.shift
+GfmLivePreview.run! ARGV
