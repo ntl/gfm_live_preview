@@ -14,10 +14,10 @@ module GfmLivePreview
       e.backtrace.each do |line| puts line; end
     end
 
-    def render_readme_html
-      readme_md = File.read ::GfmLivePreview.file
-      syntax_highlight! readme_md
-      GitHub::Markdown.render_gfm readme_md
+    def render_document
+      document = File.read ::GfmLivePreview.file
+      syntax_highlight! document
+      GitHub::Markdown.render_gfm document
     end
 
     def doc_path
@@ -28,9 +28,9 @@ module GfmLivePreview
       if request.websocket?
         request.websocket do |ws|
           ws.onopen do
-            ws.send render_readme_html
+            ws.send render_document
             listener = Listen.to doc_path do 
-              ws.send render_readme_html
+              ws.send render_document
             end
             listener.start
             settings.sockets << ws

@@ -3,11 +3,11 @@
 <head>
   <title>Github Flavored Markdown Live Preview</title>
   <link rel="stylesheet" type="css" media="all" href="github.css" />
-  <link rel="stylesheet" type="css" media="all" href="readme.css" />
+  <link rel="stylesheet" type="css" media="all" href="gfm_live_preview.css" />
 </head>
 <body>
-  <div id="readme-html">
-  </div><!-- /#readme-html -->
+  <div id="document">
+  </div><!-- /#document -->
 </body>
 <script type="text/javascript">
 window.onload = function() {
@@ -22,11 +22,11 @@ window.onload = function() {
       }
     };
 
-    var readme_html = document.getElementById("readme-html");
+    var md_document = document.getElementById("document");
     var web_socket_url = "ws://" + window.location.host + window.location.pathname;
     var ws       = new WebSocket(web_socket_url);
     ws.onmessage = function(m) {
-      readme_html.innerHTML = m.data;
+      md_document.innerHTML = m.data;
       reload_css();
     };
   })();
