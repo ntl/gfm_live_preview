@@ -17,14 +17,16 @@ window.onload = function() {
       for(var cc = 0; cc < links.length; cc++) {
         var link = links[cc];
         if(link.rel == "stylesheet") {
-          link.href += "?";
+          var token = (Math.random() + 1).toString(36).substring(7);
+          link.href = link.href.replace(/\?.*/, '') + '?' + token;
         }
       }
     };
 
-    var md_document = document.getElementById("document");
+    var md_document    = document.getElementById("document");
     var web_socket_url = "ws://" + window.location.host + window.location.pathname;
-    var ws       = new WebSocket(web_socket_url);
+    var ws             = new WebSocket(web_socket_url);
+
     ws.onmessage = function(m) {
       md_document.innerHTML = m.data;
       reload_css();

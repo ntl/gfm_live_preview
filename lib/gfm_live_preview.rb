@@ -24,4 +24,13 @@ module GfmLivePreview
   def config
     @config ||= {}
   end
+
+  def read_file(relative_path = nil)
+    path = relative_path ? root.join(relative_path) : file
+    File.read path
+  end
+
+  def root
+    Pathname(File.expand_path("..", file))
+  end
 end
