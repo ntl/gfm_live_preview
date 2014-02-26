@@ -27,7 +27,14 @@ module GfmLivePreview
         end
       end.parse(argv)
 
-      [argv.last, options]
+      file = argv.last
+
+      if file.nil?
+        @argv = ['-h']
+        parse
+      end
+
+      [file, options]
     end
   end
 end
